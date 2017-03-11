@@ -1,7 +1,9 @@
-package com.peoplecode;
+package com.peoplecode.blog.application.configuration;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+
+import com.peoplecode.blog.PeoplecodeApplication;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
@@ -9,5 +11,4 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(PeoplecodeApplication.class);
 	}
-
 }
