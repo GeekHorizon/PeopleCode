@@ -32,6 +32,9 @@ public class BlogController {
 
 	@RequestMapping("/")
 	public String index() {
+		
+		
+		
 		return "index";
 	}
 }
