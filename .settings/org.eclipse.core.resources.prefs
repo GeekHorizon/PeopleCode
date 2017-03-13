@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/peoplecode/blog/application/configuration/ServletInitializer.java=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/index.jsp=UTF-8
+encoding/build.gradle=UTF-8
