@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.peoplecode.blog.domain.model.entity.Blog;
 import com.peoplecode.blog.infrastructure.dao.BlogDao;
 
+/**
+ * 
+ * @author hyeokcheol
+ *
+ */
 @Controller
 public class BlogController {
 
@@ -26,7 +31,6 @@ public class BlogController {
 	public List<Blog> list(Model model) {
 
 		List<Blog> blogList = blogDao.findAll();
-
 		return blogList;
 	}
 
