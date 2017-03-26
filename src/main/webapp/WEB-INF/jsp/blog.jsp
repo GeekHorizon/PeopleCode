@@ -42,9 +42,9 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
-					<li><a href="#about.html">About</a></li>
+					<li><a href="#">About</a></li>
 					<li><a href="/post">Post</a></li>
-					<li><a href="#contact.html">Contact</a></li>
+					<li><a href="#">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 	<!-- Page Header -->
 	<!-- Set your background image for this header on the line below. -->
 	<header class="intro-header"
-		style="background-image: url('/webjars/startbootstrap-clean-blog/img/home-bg.jpg')">
+		style="background-color: black">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
