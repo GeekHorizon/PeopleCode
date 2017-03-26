@@ -26,7 +26,7 @@
 <!-- Ckeditor -->
 <script src="/webjars/ckeditor/ckeditor.js"></script>
 </head>
-<body>
+<body style="background-color: black">
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<div class="container-fluid">
@@ -42,8 +42,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="/post">Post</a></li>
+					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
+					<li><a href="/post/1">Post</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</div>
@@ -52,7 +52,7 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-color: black">
+    <header class="intro-header" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -73,8 +73,6 @@
 	                This is my textarea to be replaced with CKEditor.
 	            </textarea>
             	<script>
-	                // Replace the <textarea id="editor1"> with a CKEditor
-	                // instance, using default configuration.
 	                CKEDITOR.replace('editor1', 'editor2');
             	</script>
             	<input type="submit" />

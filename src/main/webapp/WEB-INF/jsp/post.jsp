@@ -22,7 +22,7 @@
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body style="background-color: black">
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 		<div class="container-fluid">
@@ -38,8 +38,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="/post">Post</a></li>
+					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
+					<li><a href="/post/1">Post</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <!-- style="background-image: url('/webjars/startbootstrap-clean-blog/img/post-bg.jpg')" -->
-    <header class="intro-header" >
+    <header class="intro-header"  >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
