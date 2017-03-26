@@ -8,18 +8,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.peoplecode.blog.domain.model.entity.Blog;
+import com.peoplecode.blog.domain.model.entity.Post;
 import com.peoplecode.blog.infrastructure.dao.BlogDao;
+import com.peoplecode.blog.infrastructure.dao.PostDao;
 
 /**
- * 
+ * 블로그 메인 페이지
  * @author hyeokcheol
  *
  */
 @Controller
+@RequestMapping("/")
 public class BlogController {
 
 	@Autowired
 	private BlogDao blogDao;
+	
+	@Autowired
+	private PostDao postDao;
+	
 
 	@RequestMapping("/add")
 	public Blog add(Blog blog) {
@@ -35,10 +42,9 @@ public class BlogController {
 	}
 
 	@RequestMapping("/")
-	public String index() {
-		
-		
-		
-		return "index";
+	public String front(Model model) {
+		List<Post> postList = postDao.findAll();
+		model.addAttribute("postList", postList);
+		return "blog";
 	}
 }

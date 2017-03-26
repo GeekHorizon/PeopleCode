@@ -44,11 +44,14 @@ dependencies {
 	compile("javax.servlet:jstl")
 	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
 	
- 	compile 'org.webjars:bootstrap:3.3.4'
+ 	compile 'org.webjars:bootstrap:3.3.7'
 	compile 'org.webjars.bower:jquery:3.1.1'
 	
 	compile 'org.springframework.boot:spring-boot-devtools'
 	
+	compile('com.navercorp.lucy:lucy-xss-servlet:2.0.0')
+	compile('com.navercorp.lucy:lucy-xss:1.6.3')
+
 	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
