@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,10 +20,10 @@
 
 
 <!-- Custom Fonts -->
-<link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+ -->
 <!-- Ckeditor -->
 <script src="/webjars/ckeditor/ckeditor.js"></script>
 </head>
@@ -68,20 +69,17 @@
         <div class="container">
             <div class="row">
             <form method="post">
-	            <input type="text" name="subject"></input>
-	            <textarea name="content" id="editor1" rows="10" cols="80">
-	                This is my textarea to be replaced with CKEditor.
+	            <input class="form-control" type="text" name="title" placeholder="title"></input>
+	            <textarea name="content" id="editor" rows="10" cols="80">
 	            </textarea>
             	<script>
-	                CKEDITOR.replace('editor1', 'editor2');
+	                CKEDITOR.replace('editor');
             	</script>
-            	<input type="submit" />
+            	<input class="btn btn-default" type="submit" value="title" />
        		</form>
             </div>
         </div>
     </article>
-
-    <hr>
 				
     <!-- Footer -->
     <footer>

@@ -26,20 +26,6 @@ public class BlogController {
 	
 	@Autowired
 	private PostDao postDao;
-	
-
-	@RequestMapping("/add")
-	public Blog add(Blog blog) {
-		Blog BlogData = blogDao.save(blog);
-		return BlogData;
-	}
-
-	@RequestMapping("/list")
-	public List<Blog> list(Model model) {
-
-		List<Blog> blogList = blogDao.findAll();
-		return blogList;
-	}
 
 	@RequestMapping("/")
 	public String front(Model model) {

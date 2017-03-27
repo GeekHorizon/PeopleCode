@@ -18,9 +18,10 @@
 <link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
 <!-- Custom Fonts -->
-<link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+ -->
 </head>
 <body style="background-color: black">
 	<!-- Navigation -->
@@ -54,8 +55,8 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>${post.subject}</h1>
-                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                        <h1>${post.title}</h1>
+                        <h2 class="subheading">${post.subTitle}</h2>
                         <span class="meta">Posted by <a href="#">k</a> on ${post.regDate}</span>
                     </div>
                 </div>
@@ -116,7 +117,7 @@
 	<!-- jQuery -->
 	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
+    <!-- Bootstra0p Core JavaScript -->
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Contact Form JavaScript -->

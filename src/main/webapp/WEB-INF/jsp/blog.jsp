@@ -20,9 +20,10 @@
 <link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
 <!-- Custom Fonts -->
-<link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+ -->
 </head>
 
 <body style="background-color: black">
@@ -44,7 +45,7 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
 					<li><a href="/post/1">Post</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="/post/write" >테스트글쓰깅</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,7 +60,7 @@
 					<div class="site-heading">
 						<h1>People Code</h1>
 						<hr class="small">
-						<span class="subheading">::PEOPLE::</span>
+						<!-- <span class="subheading">::PEOPLE::</span> -->
 					</div>
 				</div>
 			</div>
@@ -73,8 +74,8 @@
 				<c:forEach var="post" items="${postList}">
 					<div class="post-preview">
 						<a href="/post/${post.id}">
-							<h2 class="post-title">${post.subject}</h2>
-							<!-- <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3> -->
+							<h2 class="post-title">${post.title}</h2>
+							<h3 class="post-subtitle">${post.subTitle}</h3>
 						</a>
 						<p class="post-meta">Posted by <a href="#">k</a> on ${post.regDate}
 						</p>

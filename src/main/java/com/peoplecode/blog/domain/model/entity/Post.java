@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Post {
@@ -14,13 +16,21 @@ public class Post {
 	@GeneratedValue
 	private int id;
 	
+	@NotNull
+	@Size(min = 1, max = 255)
+	@Column(nullable = false)
+	private String title;
+	
+	@Size(max = 255)
 	@Column
-	private String subject;
+	private String subTitle;
 	
 	@Column
 	private Date regDate;
 	
-	@Column(length = 100000000)
+	@NotNull
+	@Size(min = 1, max = 100000000)
+	@Column(length = 100000000, nullable = false)
 	private String content;
 
 	public int getId() {
@@ -31,12 +41,20 @@ public class Post {
 		this.id = id;
 	}
 
-	public String getSubject() {
-		return subject;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 
 	public Date getRegDate() {
