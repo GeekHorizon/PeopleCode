@@ -59,7 +59,7 @@
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<div class="site-heading">
 						<h1>People Code</h1>
-						<hr class="small">
+						<!-- <hr class="small"> -->
 						<!-- <span class="subheading">::PEOPLE::</span> -->
 					</div>
 				</div>
@@ -80,7 +80,6 @@
 						<p class="post-meta">Posted by <a href="#">k</a> on ${post.regDate}
 						</p>
 					</div>
-					<hr>
 				</c:forEach>
 				<!-- Pager -->
 				<ul class="pager">

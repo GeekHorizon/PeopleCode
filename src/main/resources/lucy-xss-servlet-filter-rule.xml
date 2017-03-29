@@ -30,7 +30,7 @@
 
 	<!-- default defender 선언, 필터링 시 지정한 defender가 없으면 여기 정의된 default defender를  사용해 필터링 한다. -->
 	<default>
-		<defender>xssPreventerDefender</defender>
+		<defender>xssFilterDefender</defender>
 	</default>
 
 	<!-- global 필터링 룰 선언 -->
@@ -51,12 +51,7 @@
 	<!-- url 별 필터링 룰 선언 -->
 	<url-rule-set>
 		<!-- url disable이 true이면 지정한 url 내의 모든 파라메터는 필터링 되지 않는다. -->
-		<url-rule>
-			<url disable="true">/form</url>
-		</url-rule>
-		<url-rule>
-			<url disable="true">/post</url>
-		</url-rule>
+		
 	</url-rule-set>
 
 </config>

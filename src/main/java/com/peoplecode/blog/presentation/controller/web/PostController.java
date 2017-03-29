@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.peoplecode.blog.domain.model.entity.Post;
 import com.peoplecode.blog.infrastructure.dao.PostDao;
 
+/**
+ * @author hyeokcheol
+ *
+ */
 @Controller
 @RequestMapping("/post")
 public class PostController {
 
 	@Autowired
 	private PostDao postDao;
-
 	
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String form(Post post) {
@@ -58,4 +61,22 @@ public class PostController {
 		postDao.delete(id);
 		return "redirect:/post/list";
 	}
+	
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+	public String editor(Model model, @PathVariable int id) {
+		Post post = postDao.getOne(id);
+		model.addAttribute("post", post);
+		return "form";
+	}
+	
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
+	public String edit(Post post, BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			return "form";
+		}
+	
+		return "redirect:/post/" + postDao.save(post).getId();
+	}
+	
 }

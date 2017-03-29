@@ -68,15 +68,15 @@
     <article>
         <div class="container">
             <div class="row">
-            <form method="post">
-	            <input class="form-control" type="text" name="title" placeholder="title"></input>
-	            <textarea name="content" id="editor" rows="10" cols="80">
-	            </textarea>
+            	<form method="post">
+            
+	            <input class="form-control" type="text" name="title" placeholder="title" value="${post.title}"/>
+	            <textarea name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
             	<script>
 	                CKEDITOR.replace('editor');
             	</script>
-            	<input class="btn btn-default" type="submit" value="title" />
-       		</form>
+            	<input class="btn btn-default" type="submit" value="in" />
+       			</form>
             </div>
         </div>
     </article>

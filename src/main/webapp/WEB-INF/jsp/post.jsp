@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -64,18 +63,26 @@
         </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                   ${post.content}
-				</div>
-            </div>
-        </div>
-    </article>
+	<!-- Post Content -->
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					${post.content}</div>
+			</div>
 
-    <hr>
+			<div class="pull-left">
+				<a href="/post/${post.id}/delete" onclick="if(!confirm('정말???')){return false;}">
+					<button type="button" class="btn btn-danger">삭제</button>
+				</a>
+				<a href="/post/${post.id}/edit">
+					<button type="button" class="btn btn-danger">수정</button>
+				</a>
+			</div>
+
+		</div>
+	</article>
+	<!-- <hr>  -->
 
     <!-- Footer -->
     <footer>

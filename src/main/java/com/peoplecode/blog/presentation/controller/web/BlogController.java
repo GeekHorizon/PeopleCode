@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.peoplecode.blog.domain.model.entity.Blog;
 import com.peoplecode.blog.domain.model.entity.Post;
-import com.peoplecode.blog.infrastructure.dao.BlogDao;
 import com.peoplecode.blog.infrastructure.dao.PostDao;
 
 /**
@@ -21,9 +19,6 @@ import com.peoplecode.blog.infrastructure.dao.PostDao;
 @RequestMapping("/")
 public class BlogController {
 
-	@Autowired
-	private BlogDao blogDao;
-	
 	@Autowired
 	private PostDao postDao;
 
