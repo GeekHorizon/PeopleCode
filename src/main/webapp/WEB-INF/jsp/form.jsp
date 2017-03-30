@@ -44,8 +44,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
 					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
-					<li><a href="/post/1">Post</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="/post/write" >테스트글쓰기</a></li>
 				</ul>
 			</div>
 		</div>
@@ -69,13 +68,12 @@
         <div class="container">
             <div class="row">
             	<form method="post">
-            
 	            <input class="form-control" type="text" name="title" placeholder="title" value="${post.title}"/>
 	            <textarea name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
             	<script>
 	                CKEDITOR.replace('editor');
             	</script>
-            	<input class="btn btn-default" type="submit" value="in" />
+            	<input class="btn btn-default" type="submit" value="등록" />
        			</form>
             </div>
         </div>

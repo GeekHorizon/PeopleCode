@@ -44,8 +44,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li>
 					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
-					<li><a href="/post/1">Post</a></li>
-					<li><a href="/post/write" >테스트글쓰깅</a></li>
+					<li><a href="/post/write" >테스트글쓰기</a></li>
 				</ul>
 			</div>
 		</div>
