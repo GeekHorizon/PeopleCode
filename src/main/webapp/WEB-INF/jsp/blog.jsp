@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,6 +18,101 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
+<!-- jQuery -->
+<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
+
+<!-- masonry -->
+<script src="/webjars/masonry/masonry.pkgd.min.js"></script>
+
+
+<style type="text/css">
+div {border: 1px solid gold;}
+
+.masonry { /* Masonry container */
+    column-count: 4;
+    column-gap: 1em;
+}
+
+.item { /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+body {
+    font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+    margin: 0;
+    background: #e9e9e9;
+}
+
+.wrapper {
+    width: 95%;
+    margin: 3em auto;
+}
+
+.masonry {
+    margin: 1.5em 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+}
+
+.item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+}
+
+@media only screen and (min-width: 400px) {
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .masonry {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .masonry {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+
+
+
+</style>
 <!-- Custom Fonts -->
 <!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -27,29 +121,8 @@
 </head>
 
 <body style="background-color: black">
-	<!-- Navigation -->
-	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-				</button>
-				<a class="navbar-brand" href="/">PeopleCode</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/">Home</a></li>
-					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
-					<li><a href="/post/write" >테스트글쓰기</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+	<%@ include file="/WEB-INF/jspf/nav.jspf" %>
+		
 	<!-- Page Header -->
 	<!-- Set your background image for this header on the line below. -->
 	<header class="intro-header" >
@@ -67,9 +140,8 @@
 	</header>
 
 	<!-- Main Content -->
-	<div class="container" >
-		<div class="row" >
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	<div class="masonry">
+		<!-- <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<c:forEach var="post" items="${postList}">
 					<div class="post-preview">
 						<a href="/post/${post.id}">
@@ -80,18 +152,25 @@
 						</p>
 					</div>
 				</c:forEach>
-				<!-- Pager -->
+				
 				<ul class="pager">
-				<!-- 	<li class="next"><a href="#">Older Posts &rarr;</a></li>  -->
+				
 				</ul>
 			</div>
-		</div>
+			 -->
+   <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+   <div class="item">...</div>
+   <div class="item">...</div>
+
+
+
+
 	</div>
 
 	<!-- Footer -->
 	<footer>
-		<div class="container" >
-			
+		<div class="container">
+
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<!-- 
@@ -117,17 +196,15 @@
 						</a></li>
 					</ul>
 					 -->
-					<p class="copyright text-muted">Copyright &copy; PeopleCode 2017</p>
+					<p class="copyright text-muted">Copyright &copy; PeopleCode
+						2017</p>
 				</div>
 			</div>
-			
+
 		</div>
 	</footer>
-	
-	<!-- jQuery -->
-	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
+	<!-- Bootstrap Core JavaScript -->
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Contact Form JavaScript -->
@@ -136,5 +213,16 @@
 
     <!-- Theme JavaScript -->
     <script src="/webjars/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+    
+    <script type="text/javascript">
+    var $grid = $('.masonry').masonry({
+    	  itemSelector: '.item',
+    	  percentPosition: true,
+    	  columnWidth: '.grid-sizer'
+    	});
+    $grid.imagesLoaded().progress( function() {
+    	  $grid.masonry('layout');
+    	});
+    </script>
 </body>
 </html>

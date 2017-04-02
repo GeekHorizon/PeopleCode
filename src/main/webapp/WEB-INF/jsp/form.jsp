@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
 
+<style type="text/css">
+div {border: 1px solid gold;}
+</style>
+
 <!-- Custom Fonts -->
 <!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -28,27 +32,7 @@
 <script src="/webjars/ckeditor/ckeditor.js"></script>
 </head>
 <body style="background-color: black">
-	<!-- Navigation -->
-	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-				</button>
-				<a class="navbar-brand" href="/">PeopleCode</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/">Home</a></li>
-					<li><a href="https://jenkins.peoplecode.net">jenkins</a></li>
-					<li><a href="/post/write" >테스트글쓰기</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="/WEB-INF/jspf/nav.jspf" %>
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
