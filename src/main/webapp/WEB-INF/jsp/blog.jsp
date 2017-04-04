@@ -447,8 +447,8 @@ to {
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<div class="site-heading">
 						<h1>People Code</h1>
-						<!-- <hr class="small"> -->
-						<!-- <span class="subheading">::PEOPLE::</span> -->
+						<span class="subheading">우리가 도구를 만들면, 다음엔 도구가 우리를 만든다.
+						</span>
 					</div>
 				</div>
 			</div>

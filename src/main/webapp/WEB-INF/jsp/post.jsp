@@ -51,22 +51,47 @@ div {border: 1px solid gold;}
 	<article>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-					${post.content}</div>
-			</div>
-
-			<div class="pull-left">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">${post.content}</div>
+				
+				<div class="pull-left">
 				<a href="/post/${post.id}/delete" onclick="if(!confirm('정말???')){return false;}">
 					<button type="button" class="btn btn-danger">삭제</button>
 				</a>
 				<a href="/post/${post.id}/edit">
 					<button type="button" class="btn btn-danger">수정</button>
 				</a>
+				</div>
+				
 			</div>
-            
+			
+			<form class="form-horizontal" id="commentForm">
+				<input type="hidden" name="postId" value="${post.id}">
+				<div class="form-inline" >
+					<div class="form-group col-xs-4">
+						<label class="sr-only" for="name">name</label> 
+						<input type="text" class="form-control" id="name" name="name" placeholder="name">
+					</div>
+					<div class="form-group col-xs-4">
+						<label class="sr-only" for="password">Password</label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+					</div>
+				   <button type="submit" id="contentSubmit" class="btn btn-default btn-sm" >Sign in</button>
+				</div>
+				
+				<div class="form-group">
+					<textarea class="form-control" rows="3" name="content"></textarea>
+				</div>
+			</form>
+			
+			<div class="form-horizontal" id="commentArea">	
+				
+				
+				
+			</div>
 		</div>
 	</article>
 	<!-- <hr>  -->
+	
 
     <!-- Footer -->
     <footer>
@@ -105,6 +130,7 @@ div {border: 1px solid gold;}
         </div>
     </footer>
 	
+	
 	<!-- jQuery -->
 	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
 
@@ -117,6 +143,62 @@ div {border: 1px solid gold;}
 
     <!-- Theme JavaScript -->
     <script src="/webjars/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+    
+    <!-- 댓글 -->
+    <script type="text/javascript">
+    	
+    
+    function commentLoad() {
+    	$.ajax({
+    		type : "GET",
+    		url : "/comments",
+    		data : "postId=${post.id}",
+    		dataType : "json",
+    		cache : false,
+			success : function(comments, status) {
+				$("#commentArea").empty();
+				for (var key in comments) {
+					var comment = comments[key];
+					
+					var subTag = "<div class='form-group'>"
+					           + "<p class='bg-info'>"+ comment.name+"</p>"
+					           + "<p class='bg-danger'>"+ comment.content+"</p>"
+					           + "<div>";
+					
+					$("#commentArea").append(subTag);
+				}
+			},
+
+			error : function(data, status) {
+				alert(data.responseJSON.message);
+			}
+
+		});
+    }
+    
+    function commentSave() {
+    }
+    
+    $("#commentForm").submit(function(event) {
+		var form = $(this);
+		$.ajax({
+			type : 'post',
+			url : "/comments",
+			data : form.serialize(),
+			dataType : 'json',
+			success : function(data, status) {
+				commentLoad();
+				form[0].reset();
+			},
+			error : function(data, status) {
+				alert(data.responseJSON.message);
+			}
+		});
+	});
+    
+    commentLoad();
+   	</script>
+    
 </body>
 </html>
 
