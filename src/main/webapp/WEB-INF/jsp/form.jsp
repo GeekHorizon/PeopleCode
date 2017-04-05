@@ -20,7 +20,6 @@
 
 
 <style type="text/css">
-div {border: 1px solid gold;}
 </style>
 
 <!-- Custom Fonts -->
@@ -38,11 +37,12 @@ div {border: 1px solid gold;}
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" >
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                    </div>
+        	<div class="row">
+            <div class="jumbotron text-center" style="background-image: url('https://unsplash.it/426/?random');">
+                <div class="page-header">
+			    	EDIT POST
                 </div>
+            </div>
             </div>
         </div>
     </header>
@@ -51,13 +51,17 @@ div {border: 1px solid gold;}
     <article>
         <div class="container">
             <div class="row">
-            	<form method="post">
+            	<form class="form-group" method="post">
 	            <input class="form-control" type="text" name="title" placeholder="title" value="${post.title}"/>
-	            <textarea name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
+	            <input class="form-control" type="text" name="name" placeholder="name" value="${post.name}"/>
+	            <input class="form-control" type="password" name="password" placeholder="password" value=""/>
+	            <textarea class="form-control" name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
             	<script>
 	                CKEDITOR.replace('editor');
             	</script>
-            	<input class="btn btn-default" type="submit" value="등록" />
+            	<div class="pull-right">
+	            	<input class="btn btn-info btn-sm" type="submit" value="submit" />
+            	</div>
        			</form>
             </div>
         </div>

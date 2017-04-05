@@ -28,9 +28,6 @@ public class CommentController {
 	@Autowired
 	private CommentDao commentDao;
 	
-	@Autowired
-	private PostDao postDao;
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Comment> list(@RequestParam(value = "postId", required = true) int postId) {
 		return commentDao.findByPostId(postId);

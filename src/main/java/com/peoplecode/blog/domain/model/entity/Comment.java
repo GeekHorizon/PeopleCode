@@ -37,7 +37,6 @@ public class Comment {
 
 	@Column(name="postId")
 	private int postId; 
-
 	
 	public int getId() {
 		return id;

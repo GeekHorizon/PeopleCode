@@ -14,12 +14,10 @@
 <title>People Code</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet"
-	href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- Theme CSS -->
-<link rel="stylesheet"
-	href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
+<link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
 <!-- jQuery -->
 <script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
@@ -31,8 +29,7 @@
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Contact Form JavaScript -->
-<script
-	src="/webjars/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
+<script src="/webjars/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
 <script src="/webjars/startbootstrap-clean-blog/js/contact_me.js"></script>
 
 <!-- Theme JavaScript -->
@@ -56,10 +53,6 @@ var $grid = $('.dw').masonry({
 </script>
 
 <style type="text/css">
-div {
-	border: 1px solid gold;
-}
-
 .dw {
 	-webkit-animation: fade 2s;
 	animation: fade 2s;
@@ -553,26 +546,24 @@ to {
 			</div>
 		</div>
 		-->
-		<div class="dw-pnl ">
+		<div class="dw-pnl dw-flp--md">
 			<img src="https://unsplash.it/424/?random" class="dw-pnl__cntnt" />
 		</div>
-		<div class="dw-pnl ">
+		<div class="dw-pnl dw-flp--md">
 			<img src="https://unsplash.it/425/?random" class="dw-pnl__cntnt" />
 		</div>
-		<div class="dw-pnl ">
+		<div class="dw-pnl dw-flp--md">
 			<img src="https://unsplash.it/419/?random" class="dw-pnl__cntnt" />
 		</div>
-		<div class="dw-pnl ">
+		<div class="dw-pnl dw-flp--md">
 			<img src="https://unsplash.it/426/?random" class="dw-pnl__cntnt" />
 		</div>
 		
 		<c:forEach var="post" items="${postList}">
-			<div class="dw-pnl" onclick="">
+			<div class="dw-pnl dw-flp--md bd--white" onclick="">
 				<div class="dw-pnl__cntnt tx--white ">
 					<a href="/post/${post.id}">
-				
 					<h2>${post.title}</h2>
-					<p>${post.content}</p>
 					</a>
 				</div>
 			</div>

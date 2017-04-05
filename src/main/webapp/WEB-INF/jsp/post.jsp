@@ -17,119 +17,115 @@
 <!-- Theme CSS -->
 <link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
 
-<style type="text/css">
-div {border: 1px solid gold;}
-</style>
-
-<!-- Custom Fonts -->
-<!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
- -->
 </head>
 <body style="background-color: black">
 	<%@ include file="/WEB-INF/jspf/nav.jspf" %>
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <!-- style="background-image: url('/webjars/startbootstrap-clean-blog/img/post-bg.jpg')" -->
-    <header class="intro-header"  >
+	
+    <header class="intro-header" >
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>${post.title}</h1>
-                        <h2 class="subheading">${post.subTitle}</h2>
-                        <span class="meta">Posted by <a href="#">k</a> on ${post.regDate}</span>
-                    </div>
+        	<div class="row">
+            <div class="jumbotron text-center" style="background-image: url('https://unsplash.it/421/?random');">
+                <div class="page-header">
+			    	POST
                 </div>
+            </div>
             </div>
         </div>
     </header>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>${post.title}</h1>
+                <!-- Author -->
+                <p class="lead">
+                    by <a href="#">${post.name}</a>
+                </p>
+                <hr>
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> Posted on ${post.regDate}</p>
+                <hr>
 
-	<!-- Post Content -->
-	<article>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">${post.content}</div>
-				
-				<div class="pull-left">
-				<a href="/post/${post.id}/delete" onclick="if(!confirm('정말???')){return false;}">
-					<button type="button" class="btn btn-danger">삭제</button>
-				</a>
-				<a href="/post/${post.id}/edit">
-					<button type="button" class="btn btn-danger">수정</button>
-				</a>
-				</div>
-				
-			</div>
-			
-			<form class="form-horizontal" id="commentForm">
-				<input type="hidden" name="postId" value="${post.id}">
-				<div class="form-inline" >
-					<div class="form-group col-xs-4">
-						<label class="sr-only" for="name">name</label> 
-						<input type="text" class="form-control" id="name" name="name" placeholder="name">
-					</div>
-					<div class="form-group col-xs-4">
-						<label class="sr-only" for="password">Password</label>
-						<input type="password" class="form-control" id="password" name="password" placeholder="Password">
-					</div>
-				   <button type="submit" id="contentSubmit" class="btn btn-default btn-sm" >Sign in</button>
-				</div>
-				
-				<div class="form-group">
-					<textarea class="form-control" rows="3" name="content"></textarea>
-				</div>
-			</form>
-			
-			<div class="form-horizontal" id="commentArea">	
-				
-				
-				
-			</div>
-		</div>
-	</article>
-	<!-- <hr>  -->
-	
+                <!-- Preview Image -->
+                test-image
+                <img class="img-responsive" src="https://unsplash.it/426/?random" alt="">
+                <hr>
+                <!-- Post Content -->
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; PeopleCode 2017</p>
+                <p class="lead">
+                	${post.content}
+                </p>
+                <hr>
+                
+               	<div class="form-group">
+                <form role="form" id="postForm" method="post" action="/post/${post.id}/delete">
+                	<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                	<input type="hidden" name="postId" value="${post.id}">
+                	<div class="text-right">
+	                	<button type="submit" class="btn btn-danger">delete</button>
+                	</div>
+                </form>
+                </div>
+                <hr>
+                <!-- Comments -->
+                <!-- Comments Form -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form" id="commentForm" method="post">
+                        <div class="form-group">
+                        	<input type="hidden" name="postId" value="${post.id}">
+                            <textarea class="form-control" rows="3" name="content"></textarea>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <hr>
+                
+                <!-- Posted Comments -->
+                <!-- Comment -->
+				<div id="commentTarget">
+				</div>
+				
+           </div>
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-2">
+                <div class="well">
+                    <h4>MENU</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="list-unstyled">
+                                <li><a href="/">Home</a>
+                                </li>
+                                <li><a href="https://jenkins.peoplecode.net">Jenkins</a>
+                                </li>
+                                <li><a href="/post/write">테스트글쓰기</a>
+                                </li>
+                                <li><a href="#">-</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>TEST</h4>
+                    <p>TEST POST</p>
                 </div>
             </div>
         </div>
-    </footer>
-	
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; PeopleCode 2017</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 	
 	<!-- jQuery -->
 	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
@@ -146,8 +142,6 @@ div {border: 1px solid gold;}
     
     <!-- 댓글 -->
     <script type="text/javascript">
-    	
-    
     function commentLoad() {
     	$.ajax({
     		type : "GET",
@@ -156,16 +150,35 @@ div {border: 1px solid gold;}
     		dataType : "json",
     		cache : false,
 			success : function(comments, status) {
-				$("#commentArea").empty();
+				$("#commentTarget").empty();
+				
 				for (var key in comments) {
 					var comment = comments[key];
 					
-					var subTag = "<div class='form-group'>"
-					           + "<p class='bg-info'>"+ comment.name+"</p>"
-					           + "<p class='bg-danger'>"+ comment.content+"</p>"
-					           + "<div>";
+			        var regex = /-?\d+/;
+			        var matches = regex.exec(comment.regDate);
+			        var dt = new Date(parseInt(matches[0]));
+			        var month = dt.getMonth() + 1;
+			        var monthString = month > 9 ? month : '0' + month;
+			        var day = dt.getDate();
+			        var dayString = day > 9 ? day : '0' + day;
+			        var year = dt.getFullYear();
+			        shortDate = year + '/' + monthString + '/' + dayString + '/' + dt.getHours() + '/' + dt.getMinutes();
 					
-					$("#commentArea").append(subTag);
+		            var subTag = "<div class='media jumbotron' >"
+			                   + "<a class='pull-left' href='javascript: return false;'>"
+			                   + "<img style='width: 64px;height: 64px;'></img>"
+			                   + "</a>"
+			                   + "<div class='media-body'>"
+			                   + "<h4 class='media-heading'>" + comment.name
+			                   + "<small class='pull-right'>" + shortDate + "</small>"
+			                   + "</h4>"
+			                   + comment.content
+			                   + "</div>"
+			                   + "</div>";
+					           
+			                   
+					$("#commentTarget").append(subTag);
 				}
 			},
 
@@ -180,20 +193,22 @@ div {border: 1px solid gold;}
     }
     
     $("#commentForm").submit(function(event) {
-		var form = $(this);
-		$.ajax({
-			type : 'post',
-			url : "/comments",
-			data : form.serialize(),
-			dataType : 'json',
-			success : function(data, status) {
-				commentLoad();
-				form[0].reset();
-			},
-			error : function(data, status) {
-				alert(data.responseJSON.message);
-			}
-		});
+    	event.preventDefault(); 
+   		$.ajax({
+   			type : "POST",
+   			url : "/comments",
+   			data : $("#commentForm").serialize(),
+   			dataType : "json",
+   			cache : false,
+   			success : function(comments, status) {
+   				commentLoad();
+   				$("#commentForm")[0].reset();
+   			},
+
+   			error : function(data, status) {
+   				alert(data.responseJSON.message);
+   			}
+   		});
 	});
     
     commentLoad();

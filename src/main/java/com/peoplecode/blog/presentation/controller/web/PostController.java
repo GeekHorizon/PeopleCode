@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.peoplecode.blog.domain.model.entity.Post;
 import com.peoplecode.blog.infrastructure.dao.PostDao;
@@ -57,9 +59,20 @@ public class PostController {
 	}
 	
 	@RequestMapping("/{id}/delete")
-	public String delete(@PathVariable int id) {
-		postDao.delete(id);
-		return "redirect:/post/list";
+	public String delete(@PathVariable int id, @RequestParam(value = "password", required = true) String password) {
+		
+		Post post = postDao.findOne(id);
+		
+		if (post != null) {
+			if (StringUtils.equals(post.getPassword(), password)) {
+				postDao.delete(id);
+				return "redirect:/post/list";
+			}
+			return "redirect:/post/" + id;
+		} else {
+			return "redirect:/post/write";
+		}
+		
 	}
 	
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)

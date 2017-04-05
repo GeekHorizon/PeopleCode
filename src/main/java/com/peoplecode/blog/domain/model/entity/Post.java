@@ -28,6 +28,11 @@ public class Post {
 	@Column(nullable = false)
 	private String title;
 	
+	@NotNull
+	@Size(min = 1, max = 255)
+	@Column(nullable = false)
+	private String name;
+	
 	@Size(max = 255)
 	@Column
 	private String subTitle;
@@ -40,7 +45,7 @@ public class Post {
 	@Column(length = 100000000, nullable = false)
 	private String content;
 	
-	@Column
+	@Column(nullable = false)
 	@JsonIgnore
 	@Size(min = 1, max = 20)
 	private String password;
@@ -103,6 +108,14 @@ public class Post {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
