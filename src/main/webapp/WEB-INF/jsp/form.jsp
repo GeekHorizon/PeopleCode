@@ -13,24 +13,12 @@
 <title>People Code</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
 
-<!-- Theme CSS -->
-<link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
-
-
-<style type="text/css">
-</style>
-
-<!-- Custom Fonts -->
-<!-- <link href="/webjars/startbootstrap-clean-blog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
- -->
 <!-- Ckeditor -->
 <script src="/webjars/ckeditor/ckeditor.js"></script>
 </head>
-<body style="background-color: black">
+<body>
 	<%@ include file="/WEB-INF/jspf/nav.jspf" %>
 
     <!-- Page Header -->
@@ -40,81 +28,58 @@
         	<div class="row">
             <div class="jumbotron text-center" style="background-image: url('https://unsplash.it/426/?random');">
                 <div class="page-header">
-			    	EDIT POST
+			    	POST
                 </div>
             </div>
             </div>
         </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-            	<form class="form-group" method="post">
-	            <input class="form-control" type="text" name="title" placeholder="title" value="${post.title}"/>
-	            <input class="form-control" type="text" name="name" placeholder="name" value="${post.name}"/>
-	            <input class="form-control" type="password" name="password" placeholder="password" value=""/>
-	            <textarea class="form-control" name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
-            	<script>
-	                CKEDITOR.replace('editor');
-            	</script>
-            	<div class="pull-right">
-	            	<input class="btn btn-info btn-sm" type="submit" value="submit" />
-            	</div>
-       			</form>
-            </div>
-        </div>
-    </article>
-				
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; PeopleCode 2017</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+	<div class="container">
+		<div class="row">
+			<form class="form-horizontal" method="post">
+			<div class="form-group">
+				<label for="postTitle" class="col-sm-2 control-label">Title</label>
+			    <div class="col-sm-10">
+			    	<input class="form-control" id="postTitle" type="text" name="title" placeholder="" value="${post.title}"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<label for="postName" class="col-sm-2 control-label">Name</label>
+			    <div class="col-sm-10">
+					<input class="form-control" id="postName" type="text" name="name" placeholder="" value="${post.name}"/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<label for="postPassword" class="col-sm-2 control-label">Password</label>
+			    <div class="col-sm-10">
+					<input class="form-control" id="postPassword" type="password" name="password" placeholder="" value=""/>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-10">
+					<textarea class="form-control" name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
+					<script>
+						CKEDITOR.replace('editor');
+					</script>
+				</div>
+			</div>
+			<div class="clearfix">
+				<input class="btn btn-info btn-primary pull-right" type="submit" value="Submit" />
+			</div>
+			</form>
+		    <hr />
+	    </div>
+	</div>
+			
+    <%@ include file="/WEB-INF/jspf/footer.jspf" %>
 	
 	<!-- jQuery -->
-	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
+	<script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="/webjars/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
-    <script src="/webjars/startbootstrap-clean-blog/js/contact_me.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="/webjars/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
 </body>
 </html>

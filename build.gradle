@@ -44,14 +44,24 @@ dependencies {
 	compile("javax.servlet:jstl")
 	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
 	
- 	compile 'org.webjars:bootstrap:3.3.7'
-	compile 'org.webjars.bower:jquery:3.1.1'
-	
 	compile 'org.springframework.boot:spring-boot-devtools'
+	
+ 	//compile 'org.webjars:bootstrap:3.3.7'
+ 	//compile group: 'org.webjars', name: 'bootstrap', version: '4.0.0-alpha.6-1'
+ 	//compile 'org.webjars.bower:jquery:3.1.1'
+	
+	compile (group: 'org.webjars', name: 'bootstrap', version: '3.3.7-1') {
+		exclude module: 'jquery' // 특정 의존성에 대해선만 모듈 제외.
+	}
+ 	
+ 	compile group: 'org.webjars.bower', name: 'jquery', version: '3.2.1'
+	compile group: 'org.webjars.bower', name: 'tether', version: '1.4.0'
+	
+	
 	
 	compile('com.navercorp.lucy:lucy-xss-servlet:2.0.0')
 	compile('com.navercorp.lucy:lucy-xss:1.6.3')
-
+	
 	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')

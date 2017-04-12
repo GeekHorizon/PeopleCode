@@ -12,13 +12,21 @@
 <title>People Code</title>
 
 <!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
 
-<!-- Theme CSS -->
-<link rel="stylesheet" href="/webjars/startbootstrap-clean-blog/css/clean-blog.min.css">
+<style type="text/css">
+.bd-comment {
+	padding: 1.5rem;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	border-width: .2rem;
+	border: solid #f7f7f9
+}
+</style>
 
 </head>
-<body style="background-color: black">
+<body >
 	<%@ include file="/WEB-INF/jspf/nav.jspf" %>
 	
     <header class="intro-header" >
@@ -45,7 +53,6 @@
                 <!-- Date/Time -->
                 <p><span class="glyphicon glyphicon-time"></span> Posted on ${post.regDate}</p>
                 <hr>
-
                 <!-- Preview Image -->
                 test-image
                 <img class="img-responsive" src="https://unsplash.it/426/?random" alt="">
@@ -57,37 +64,48 @@
                 </p>
                 <hr>
                 
-               	<div class="form-group">
-                <form role="form" id="postForm" method="post" action="/post/${post.id}/delete">
-                	<input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                	<input type="hidden" name="postId" value="${post.id}">
-                	<div class="text-right">
-	                	<button type="submit" class="btn btn-danger">delete</button>
-                	</div>
+                <form class="form-horizontal" id="postForm" method="post" action="/post/${post.id}/delete">
+               		<input type="hidden" name="postId" value="${post.id}">
+    	           	<div class="form-group">
+	                	<div class="col-sm-10">
+    	           			<label class="sr-only" for="postPassword">Password</label>
+  	            			<input type="password" class="form-control" id="postPassword" name="password" placeholder="Password">
+	                	</div>
+	                	<div class="col-sm-2 pull-right">
+		                	<button type="submit" class="btn btn-primary" style="width:100%;">delete</button>
+	                	</div>
+	                </div>
                 </form>
-                </div>
+                
                 <hr>
                 <!-- Comments -->
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form" id="commentForm" method="post">
+                    <form id="commentForm" method="post">
+                       	<input type="hidden" name="postId" value="${post.id}">
                         <div class="form-group">
-                        	<input type="hidden" name="postId" value="${post.id}">
-                            <textarea class="form-control" rows="3" name="content"></textarea>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                        	<textarea class="form-control" rows="3" name="content"></textarea>
+                        </div>
+                        <div class="form-group">
+                        	<input type="text" class="form-control" id="name" name="name" placeholder="name">
+                        </div>
+						<div class="form-group">                         
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="clearfix">
+                        	<button type="submit" class="btn btn-primary pull-right">Submit</button>
+                        </div>
                     </form>
                 </div>
                 <hr>
                 
                 <!-- Posted Comments -->
                 <!-- Comment -->
-				<div id="commentTarget">
+                <div class="bd-comment">
+                	<ul class="media-list" id="commentTarget">
+                	</ul>
 				</div>
-				
            </div>
 
             <!-- Sidebar Widgets Column -->
@@ -117,29 +135,18 @@
                 </div>
             </div>
         </div>
-        <hr>
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; PeopleCode 2017</p>
-                </div>
-            </div>
-        </footer>
+        <hr />
     </div>
 	
+	<%@ include file="/WEB-INF/jspf/footer.jspf" %>
+	
 	<!-- jQuery -->
-	<script src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
-
-    <!-- Bootstra0p Core JavaScript -->
-    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="/webjars/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
-    <script src="/webjars/startbootstrap-clean-blog/js/contact_me.js"></script>
+	<script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="/webjars/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
-    
     <!-- 댓글 -->
     <script type="text/javascript">
     function commentLoad() {
@@ -165,19 +172,26 @@
 			        var year = dt.getFullYear();
 			        shortDate = year + '/' + monthString + '/' + dayString + '/' + dt.getHours() + '/' + dt.getMinutes();
 					
-		            var subTag = "<div class='media jumbotron' >"
+		           /*  var subTag = "<div class='media jumbotron' >"
 			                   + "<a class='pull-left' href='javascript: return false;'>"
 			                   + "<img style='width: 64px;height: 64px;'></img>"
 			                   + "</a>"
 			                   + "<div class='media-body'>"
-			                   + "<h4 class='media-heading'>" + comment.name
-			                   + "<small class='pull-right'>" + shortDate + "</small>"
-			                   + "</h4>"
+			                   + "<h5 class='mt-0'>" + comment.name
+			                   + "<small class='left'>" + shortDate + "</small>"
+			                   + "</h5>"
 			                   + comment.content
 			                   + "</div>"
-			                   + "</div>";
+			                   + "</div>"; */
+		           	var subTag = "<li class='media'>"
+			                   + "<div class='media-left'><img class='media-object' style='width: 64px; height: 64px;' src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15b5dcf3b2c%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15b5dcf3b2c%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2214%22%20y%3D%2236.5%22%3E64x64%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E' data-holder-rendered='true'></div>"
+			                   + "<div class='media-body'>"
+			                   + "<h4 class='media-heading'>" + comment.name
+			                   + "<small><i>" + shortDate + "</i></small></h4><p>"
+			                   + comment.content
+			                   + "</p></div>"
+			                   + "</li><hr />"; 
 					           
-			                   
 					$("#commentTarget").append(subTag);
 				}
 			},
@@ -212,9 +226,14 @@
 	});
     
     commentLoad();
+    $('body').popover({
+        placement: 'bottom',
+        container: 'body',
+        trigger: 'hover',
+        html: true,
+        animation: false,
+        selector: '[data-toggle="popover"]'
+    });
    	</script>
-    
 </body>
 </html>
-
-

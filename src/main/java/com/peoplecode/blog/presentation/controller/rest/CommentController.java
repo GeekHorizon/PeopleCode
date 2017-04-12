@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.peoplecode.blog.domain.model.entity.Comment;
 import com.peoplecode.blog.infrastructure.dao.CommentDao;
-import com.peoplecode.blog.infrastructure.dao.PostDao;
 
 /**
  * @author hyeokcheol

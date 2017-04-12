@@ -1,3 +1,4 @@
+
 // Floating label headings for the contact form
 $(function() {
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
@@ -12,7 +13,6 @@ $(function() {
 // Navigation Scripts to Show Header on Scroll-Up
 jQuery(document).ready(function($) {
     var MQL = 1170;
-
     //primary navigation slide-in effect
     if ($(window).width() > MQL) {
         var headerHeight = $('.navbar-custom').height();
