@@ -50,6 +50,8 @@
 	display: inline-block;
 	margin: 0 0 1.5em;
 	box-sizing: border-box;
+	width : 100%;
+	height : auto;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-shadow: 2px 2px 4px 0 #ccc;
@@ -99,7 +101,6 @@
 
 .grid-item--gigante {
 	width: 300px;
-	height: 300px;
 }
 
 
@@ -124,7 +125,7 @@
 	</header>
 
 	<!-- Main Content -->
-	<div class="container">
+	<div class="container wrapper">
 		<!-- add extra container element for Masonry -->
 		<div class="grid">
 			<div class="grid-item">
@@ -178,7 +179,7 @@
 			<div class="grid-item">
 				<div class="panel panel-default marginzero">
 					<div class="panel-heading">
-						<a href="/post/${post.id}"> ${post.title}</a>
+						<a href="/post/${post.id}"> <span>${post.title}</span></a>
 					</div>
 					<div class="panel-body">body</div>
 				</div>
@@ -191,7 +192,16 @@
 	<%@ include file="/WEB-INF/jspf/footer.jspf" %>
 	
 	<script type="text/javascript">
-		
+		var $grid = $(".grid").masonry({
+		  	itemSelector: ".grid-item",
+		  	columnWidth : ".grid-item",
+			percentPosition : true
+		});
+
+		$grid.on('click', '.grid-item', function() {
+			$(this).toggleClass('grid-item--gigante');
+			$grid.masonry();
+		});
 	</script>
 	
 </body>
