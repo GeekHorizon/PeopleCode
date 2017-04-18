@@ -33,10 +33,76 @@
     margin: 10px 0 10px 0;
 }
 
-.grid-item--gigante {
-  width: 320px;
-  height: 360px;
+.wrapper {
+    width: 95%;
+    margin: 3em auto;
 }
+
+.grid {
+    margin: 1.5em 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+}
+
+.grid-item {
+	display: inline-block;
+	margin: 0 0 1.5em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-shadow: 2px 2px 4px 0 #ccc;
+}
+
+@media only screen and (min-width: 400px) {
+    .grid {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .grid {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .grid {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .grid {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+
+.marginzero {
+	margin: 0;
+}
+
+.grid-item--gigante {
+	width: 300px;
+	height: 300px;
+}
+
+
 </style>
 </head>
 <body style="background-color: #eee">
@@ -61,68 +127,58 @@
 	<div class="container">
 		<!-- add extra container element for Masonry -->
 		<div class="grid">
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-			 	<div class="panel panel-default">
+			<div class="grid-item">
+			 	<div class="panel panel-default marginzero">
 			 		<div class="panel-heading"><span>test5</span>
 				 	</div>
 				 	<div class="panel-body">
-					 	<div class="post-box2"> 
-				        	<img class="img-responsive img-thumbnail" src="http://i.imgur.com/5wbEJ4D.jpg">
-				   		</div>
+			        	<img class="img-responsive img-thumbnail" src="http://i.imgur.com/5wbEJ4D.jpg">
 				 	</div>
 		   		</div>
 			</div>
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-			 	<div class="panel panel-default">
+			<div class="grid-item">
+			 	<div class="panel panel-default marginzero">
 			 		<div class="panel-heading"><span>test4</span>
 				 	</div>
 				 	<div class="panel-body">
-					 	<div class="post-box2"> 
-				        	<img class="img-responsive img-thumbnail" src="http://tiaurus.info/wp-content/uploads/2012/08/yarkoe-i-sochnoe-gipperrealistichnoe-iskusstvo-dennis-wojtkiewicz-3.jpg?76b437">
-				   		</div>
+			        	<img class="img-responsive img-thumbnail" src="http://tiaurus.info/wp-content/uploads/2012/08/yarkoe-i-sochnoe-gipperrealistichnoe-iskusstvo-dennis-wojtkiewicz-3.jpg?76b437">
 				 	</div>
 		   		</div>
 			</div>
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-			 	<div class="panel panel-default">
+			<div class="grid-item">
+			 	<div class="panel panel-default marginzero">
 			 		<div class="panel-heading"><span>test3</span>
 				 	</div>
 				 	<div class="panel-body">
-					 	<div class="post-box2"> 
-					    	<img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif">
-				   		</div>
+				    	<img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif">
 				 	</div>
 		   		</div>
 			</div>
 			
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-			 	<div class="panel panel-default">
+			<div class="grid-item">
+			 	<div class="panel panel-default marginzero">
 			 		<div class="panel-heading"><span>test2</span>
 				 	</div>
 				 	<div class="panel-body">
-					 	<div class="post-box2"> 
-			    			<img class="img-responsive img-thumbnail" src="http://i.imgur.com/FaIH0Zz.jpg">
-				   		</div>
+		    			<img class="img-responsive img-thumbnail" src="http://i.imgur.com/FaIH0Zz.jpg">
 				 	</div>
 		   		</div>
 			</div>
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-			 	<div class="panel panel-default">
+			<div class="grid-item">
+			 	<div class="panel panel-default marginzero">
 				 	<div class="panel-heading"><span>test1</span>
 				 	</div>
 				 	<div class="panel-body">
-					 	<div class="post-box2"> 
-				    		<img class="img-responsive img-thumbnail" src="http://i.imgur.com/3CjBFlN.jpg">
-				   		</div>
+			    		<img class="img-responsive img-thumbnail" src="http://i.imgur.com/3CjBFlN.jpg">
 				 	</div>
 		   		</div>
 			</div>
 			
 			<c:forEach var="post" items="${postList}">
-			<div class="grid-item col-lg-4 col-md-4 col-sm-4">
-				<div class="panel panel-default">
+			<div class="grid-item">
+				<div class="panel panel-default marginzero">
 					<div class="panel-heading">
-						<a href="/post/${post.id}"> <span>${post.title}</span></a>
+						<a href="/post/${post.id}"> ${post.title}</a>
 					</div>
 					<div class="panel-body">body</div>
 				</div>
@@ -135,15 +191,6 @@
 	<%@ include file="/WEB-INF/jspf/footer.jspf" %>
 	
 	<script type="text/javascript">
-		var $grid = $('.grid').masonry({
-		  itemSelector: '.grid-item',
-		  percentPosition: true
-		});
-		
-		$grid.on( 'click', '.grid-item', function() {
-			$(this).toggleClass('grid-item--gigante');
-			$grid.masonry();
-		});
 		
 	</script>
 	
