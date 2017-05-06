@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.peoplecode.blog.domain.model.entity.Post;
@@ -22,7 +23,7 @@ public class BlogController {
 	@Autowired
 	private PostDao postDao;
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String front(Model model) {
 		List<Post> postList = postDao.findAll();
 		model.addAttribute("postList", postList);

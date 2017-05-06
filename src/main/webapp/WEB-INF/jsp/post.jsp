@@ -64,16 +64,19 @@
                 </p>
                 <hr>
                 
-                <form class="form-horizontal" id="postForm" method="post" action="/post/${post.id}/delete">
+                <form class="form-horizontal" id="postAction">
                		<input type="hidden" name="postId" value="${post.id}">
     	           	<div class="form-group">
-	                	<div class="col-sm-10">
+	                	<div class="">
     	           			<label class="sr-only" for="postPassword">Password</label>
   	            			<input type="password" class="form-control" id="postPassword" name="password" placeholder="Password">
 	                	</div>
-	                	<div class="col-sm-2 pull-right">
-		                	<button type="submit" class="btn btn-primary" style="width:100%;">delete</button>
+	                	
+	                	<div class="btn-group pull-right">
+		                	<label class="btn btn-primary" id="edit" >edit</label>
+       						<label class="btn btn-primary" id="delete">delete</label>
 	                	</div>
+	                	
 	                </div>
                 </form>
                 
@@ -203,9 +206,6 @@
 		});
     }
     
-    function commentSave() {
-    }
-    
     $("#commentForm").submit(function(event) {
     	event.preventDefault(); 
    		$.ajax({
@@ -234,6 +234,15 @@
         animation: false,
         selector: '[data-toggle="popover"]'
     });
+    
+    $("#edit").on("click", function() {
+    	$("#postAction").attr("action", "/post/${post.id}/edit").attr("method", "GET").submit();
+    });
+    
+	$("#delete").on("click", function() {
+		$("#postAction").attr("action", "/post/${post.id}").attr("method", "DELETE").submit();
+    });
+    
    	</script>
 </body>
 </html>

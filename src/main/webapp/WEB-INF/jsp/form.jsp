@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -37,37 +36,46 @@
 
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal" method="post">
-			<div class="form-group">
-				<label for="postTitle" class="col-sm-2 control-label">Title</label>
-			    <div class="col-sm-10">
-			    	<input class="form-control" id="postTitle" type="text" name="title" placeholder="" value="${post.title}"/>
-			    </div>
-			</div>
-			<div class="form-group">
-				<label for="postName" class="col-sm-2 control-label">Name</label>
-			    <div class="col-sm-10">
-					<input class="form-control" id="postName" type="text" name="name" placeholder="" value="${post.name}"/>
-			    </div>
-			</div>
-			<div class="form-group">
-				<label for="postPassword" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
-					<input class="form-control" id="postPassword" type="password" name="password" placeholder="" value=""/>
-			    </div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-10">
-					<textarea class="form-control" name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
-					<script>
-						CKEDITOR.replace('editor');
-					</script>
+			<c:choose>
+				<c:when test="${post == null || post.id == 0}">
+					<c:url var="action" value="/post"/>
+				</c:when>
+				<c:otherwise>
+					<c:url var="action" value="/post/${post.id}"/>
+				</c:otherwise>
+			</c:choose>
+
+			<form class="form-horizontal" method="post" action="${action}">
+				<div class="form-group">
+					<label for="postTitle" class="col-sm-2 control-label">Title</label>
+				    <div class="col-sm-10">
+				    	<input class="form-control" id="postTitle" type="text" name="title" placeholder="" value="${post.title}"/>
+				    </div>
 				</div>
-			</div>
-			<div class="clearfix">
-				<input class="btn btn-info btn-primary pull-right" type="submit" value="Submit" />
-			</div>
+				<div class="form-group">
+					<label for="postName" class="col-sm-2 control-label">Name</label>
+				    <div class="col-sm-10">
+						<input class="form-control" id="postName" type="text" name="name" placeholder="" value="${post.name}"/>
+				    </div>
+				</div>
+				<div class="form-group">
+					<label for="postPassword" class="col-sm-2 control-label">Password</label>
+				    <div class="col-sm-10">
+						<input class="form-control" id="postPassword" type="password" name="password" placeholder="" value=""/>
+				    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+						<textarea class="form-control" name="content" id="editor" rows="10" cols="80">${post.content}</textarea>
+						<script>
+							CKEDITOR.replace('editor');
+						</script>
+					</div>
+				</div>
+				<div class="clearfix">
+					<input class="btn btn-info btn-primary pull-right" type="submit" value="Submit" />
+				</div>
 			</form>
 		    <hr />
 	    </div>
